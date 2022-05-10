@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="manufacture_order_mrp_bom_form_view_inherited" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherited</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view" />       
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="process_cost"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_order_view_form_inherit" model="ir.ui.view">
+         <field name="name">sale.order.form.inherited</field>
+         <field name="model">sale.order</field>
+         <field name="inherit_id" ref="sale.view_order_form" />
+         <field name="priority">20</field>
+         <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_draft']" position="after">
+                <button name="create_manufacture" string="Create Manufacture Order" type="object" />
+            </xpath>
+         </field>
+    </record>
+</odoo>
